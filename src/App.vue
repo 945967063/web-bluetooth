@@ -1,5 +1,5 @@
 <template>
-  <el-button type="primary" @click="nextClicks">连接蓝牙</el-button>
+  <el-button type="primary" @click="connectBluetooth">连接蓝牙</el-button>
   <div v-if="isBluetooth">
     <el-input
       style="margin-top: 20px"
@@ -17,7 +17,7 @@
     <div style="margin-top: 20px">接收到蓝牙返回的消息</div>
     <el-input
       v-model="characteristicValue"
-      :rows="3"
+      :rows="7"
       type="textarea"
       placeholder=""
     />
@@ -39,7 +39,7 @@ const characteristicValue = ref("");
 
 //消息
 const textarea = ref('{"Command":16711937,"CommandName":"获取设备信息"}');
-const nextClicks = async () => {
+const connectBluetooth = async () => {
   (navigator as any).bluetooth.getAvailability().then((available: boolean) => {
     if (available) {
       console.log("设备支持蓝牙连接!", available);
