@@ -15,6 +15,7 @@
       >发送消息</el-button
     >
     <div style="margin-top: 20px">接收到蓝牙返回的消息</div>
+
     <el-input
       v-model="characteristicValue"
       :rows="7"
